@@ -1,0 +1,120 @@
+/* About.css */
+.about-container {
+  background-color: #181818;
+  color: #eee;
+  padding: 80px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  min-height: calc(100vh - 60px); /* Adjust for navbar height */
+}
+
+.intro-section,
+.projects-section,
+.legal-section,
+.contact-section {
+  width: 100%;
+  max-width: 960px;
+  padding: 40px;
+  background-color: #222;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.intro-section {
+  animation-delay: 0.2s;
+}
+
+.projects-section {
+  animation-delay: 0.4s;
+}
+
+.legal-section {
+  animation-delay: 0.6s;
+}
+
+.contact-section {
+  animation-delay: 0.8s;
+}
+
+.intro-section h1,
+.projects-section h2,
+.legal-section h2,
+.contact-section h2 {
+  color: #f0f0f0;
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.intro-section p,
+.projects-section p,
+.legal-section p,
+.contact-section p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #bbb;
+  margin-bottom: 20px;
+}
+
+.contact-section a {
+  color: #00cba9;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.contact-section a:hover {
+  color: #00a88e;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 60px 20px;
+    gap: 40px;
+    min-height: calc(100vh - 50px); /* Adjust for smaller mobile navbar */
+  }
+
+  .intro-section,
+  .projects-section,
+  .legal-section,
+  .contact-section {
+    padding: 30px;
+    border-radius: 8px;
+  }
+
+  .intro-section h1,
+  .projects-section h2,
+  .legal-section h2,
+  .contact-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+
+  .intro-section p,
+  .projects-section p,
+  .legal-section p,
+  .contact-section p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+  }
+}

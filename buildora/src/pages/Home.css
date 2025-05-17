@@ -1,0 +1,380 @@
+/* Home.css */
+.home-container {
+  display: flex;
+  flex-direction: column; /* Stack content vertically for the whole page */
+  justify-content: flex-start; /* Align items at the top initially */
+  align-items: center;
+  min-height: calc(100vh - 60px); /* Adjust for a fixed navbar of 60px height */
+  background-color: #181818; /* Darker background */
+  color: #eee; /* Lighter text */
+  padding: 70px 30px 40px; /* Increased top padding, added bottom padding */
+  position: relative;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Content container with layered effect (Hero Section) */
+.content-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Equal columns */
+  align-items: center;
+  width: 100%;
+  max-width: 1400px; /* Wider max width */
+  margin-bottom: 80px; /* Increased spacing below the hero section */
+  position: relative;
+}
+
+/* Quote container with staggered animations (Hero Section) */
+.quote {
+  text-align: left; /* Align text to the left */
+  opacity: 0;
+  transform: translateY(30px) translateX(-80px); /* Start a bit lower */
+  animation: slideInLeftComplex 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  z-index: 2; /* Ensure it's above the image layer */
+}
+
+.quote h2 {
+  font-size: 2.7rem; /* Slightly larger font for emphasis */
+  font-weight: 700; /* More bold */
+  letter-spacing: 0.5px;
+  color: #f0f0f0;
+  margin-bottom: 25px;
+  opacity: 0;
+  transform: translateY(40px); /* Start even lower */
+  animation: fadeInUpSlight 0.8s ease-out 0.6s forwards; /* Delay increased */
+}
+
+.quote p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #ccc;
+  opacity: 0;
+  transform: translateY(40px); /* Start even lower */
+  animation: fadeInUpSlight 0.8s ease-out 0.8s forwards; /* Delay increased */
+}
+
+/* Image container with parallax and subtle rotation (Hero Section) */
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px) rotate(5deg) scale(0.9); /* Start a bit lower */
+  animation: fadeInScaleRotate 1.5s ease-out 1s forwards, subtleRotate 5s linear infinite alternate; /* Delay increased */
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
+  border-radius: 16px;
+  overflow: hidden; /* Clip any overflow from the subtle rotation */
+}
+
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05); /* Subtle glassmorphism effect */
+  pointer-events: none;
+}
+
+.image-container img {
+  width: 100%; /* Take full width of the container */
+  height: auto;
+  transform: scale(1.05); /* Slight zoom on the image inside */
+  transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.image-container:hover img {
+  transform: scale(1.1);
+}
+
+/* Features Section */
+.features-section {
+  width: 100%;
+  max-width: 1200px;
+  padding: 80px 20px; /* Increased padding */
+  text-align: center;
+}
+
+.features-section h2 {
+  font-size: 2.6rem; /* Slightly larger font */
+  font-weight: 600;
+  color: #f0f0f0;
+  margin-bottom: 50px; /* Increased margin */
+  opacity: 0;
+  transform: translateY(40px); /* Start lower */
+  animation: fadeInUpSlight 0.8s ease-out 0.4s forwards; /* Delay increased */
+}
+
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly wider min width */
+  gap: 40px; /* Increased gap */
+}
+
+.feature-item {
+  background-color: #222;
+  padding: 35px; /* Increased padding */
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(40px); /* Start lower */
+  animation: fadeInUpSlight 0.8s ease-out 0.2s forwards; /* Adjust delays as needed */
+}
+
+.feature-item:nth-child(1) {
+  animation-delay: 0.6s;
+}
+
+.feature-item:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.feature-item:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.feature-item h3 {
+  font-size: 2rem; /* Larger font */
+  font-weight: 500;
+  color: #ddd;
+  margin-bottom: 20px; /* Increased margin */
+}
+
+.feature-item p {
+  font-size: 1.15rem; /* Slightly larger font */
+  line-height: 1.7;
+  color: #aaa;
+}
+
+/* Why Choose Us Section */
+.why-choose-us-section {
+  width: 100%;
+  max-width: 950px; /* Slightly wider */
+  padding: 100px 20px; /* Increased padding */
+  text-align: center;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(60px); /* Start lower */
+  animation: fadeInUpSlight 1s ease-out 0.6s forwards; /* Delay increased */
+}
+
+.why-choose-us-section h2 {
+  font-size: 2.8rem; /* Larger font */
+  font-weight: 600;
+  color: #f0f0f0;
+  margin-bottom: 40px; /* Increased margin */
+}
+
+.why-choose-us-section p {
+  font-size: 1.25rem; /* Slightly larger font */
+  line-height: 1.9;
+  color: #bbb;
+}
+
+/* Call to Action Section */
+.cta-section {
+  width: 100%;
+  padding: 100px 20px; /* Increased padding */
+  text-align: center;
+  background-color: #222;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(70px); /* Start lower */
+  animation: fadeInUpSlight 1s ease-out 0.8s forwards; /* Delay increased */
+}
+
+.cta-section h2 {
+  font-size: 2.6rem; /* Larger font */
+  font-weight: 600;
+  color: #f0f0f0;
+  margin-bottom: 30px; /* Increased margin */
+}
+
+.cta-section p {
+  font-size: 1.25rem; /* Slightly larger font */
+  line-height: 1.9;
+  color: #ccc;
+  margin-bottom: 40px; /* Increased margin */
+}
+
+.cta-button {
+  background-color: #00cba9;
+  color: #fff;
+  font-size: 1.4rem; /* Larger font */
+  font-weight: 500;
+  padding: 18px 35px; /* Increased padding */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #00a88e;
+}
+
+/* Background gradient animation */
+.home-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #4f00bc, #29abe2, #00cba9, #fdd835, #ff5722, #4f00bc);
+  background-size: 300% 300%;
+  animation: gradientAnimation 15s ease infinite;
+  z-index: 0; /* Behind the content */
+  opacity: 0.8;
+}
+
+/* Animation keyframes */
+@keyframes slideInLeftComplex {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) translateX(-200px) rotateY(-20deg); /* Start further down and left */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) rotateY(0deg);
+  }
+}
+
+@keyframes fadeInUpSlight {
+  0% {
+    opacity: 0;
+    transform: translateY(80px); /* Start further down */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScaleRotate {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) rotate(-10deg) scale(0.8); /* Start further down */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes subtleRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 768px) {
+  .home-container {
+    padding-top: 70px; /* Ensure top padding accounts for navbar */
+    padding-bottom: 30px; /* Adjust bottom padding */
+    min-height: calc(100vh - 50px); /* Adjust for smaller mobile navbar */
+  }
+
+  .content-container {
+    grid-template-columns: 1fr; /* Stack columns */
+    text-align: center;
+    margin-bottom: 60px; /* Increased margin */
+  }
+
+  .quote {
+    text-align: center;
+    margin-bottom: 40px; /* Increased margin */
+    animation: fadeInUpSlight 0.8s ease-out 0.3s forwards;
+    transform: none;
+  }
+
+  .quote h2 {
+    font-size: 2.6rem; /* Adjust font size */
+    animation-delay: 0.2s;
+  }
+
+  .quote p {
+    font-size: 1.15rem; /* Adjust font size */
+    animation-delay: 0.4s;
+  }
+
+  .image-container {
+    animation: fadeInScaleRotate 1s ease-out 0.7s forwards, subtleRotate 3s linear infinite alternate;
+    transform: translateY(20px) none; /* Move down slightly initially */
+  }
+
+  .image-container img {
+    width: 95%; /* Take more width on mobile */
+  }
+
+  .features-section {
+    padding: 60px 20px; /* Adjust padding */
+  }
+
+  .features-section h2 {
+    font-size: 2.4rem; /* Adjust font size */
+    margin-bottom: 40px; /* Increased margin */
+  }
+
+  .features-container {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 30px; /* Increased gap */
+  }
+
+  .feature-item {
+    padding: 25px; /* Adjust padding */
+  }
+
+  .feature-item h3 {
+    font-size: 1.8rem; /* Adjust font size */
+    margin-bottom: 15px; /* Increased margin */
+  }
+
+  .why-choose-us-section {
+    padding: 80px 20px; /* Adjust padding */
+  }
+
+  .why-choose-us-section h2 {
+    font-size: 2.5rem; /* Adjust font size */
+    margin-bottom: 30px; /* Increased margin */
+  }
+
+  .why-choose-us-section p {
+    font-size: 1.2rem; /* Adjust font size */
+  }
+
+  .cta-section {
+    padding: 80px 20px; /* Adjust padding */
+  }
+
+  .cta-section h2 {
+    font-size: 2.4rem; /* Adjust font size */
+    margin-bottom: 25px; /* Increased margin */
+  }
+
+  .cta-section p {
+    font-size: 1.2rem; /* Adjust font size */
+    margin-bottom: 35px; /* Increased margin */
+  }
+
+  .cta-button {
+    font-size: 1.3rem; /* Adjust font size */
+    padding: 15px 30px; /* Adjust padding */
+  }
+}

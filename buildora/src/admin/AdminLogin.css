@@ -1,0 +1,168 @@
+/* AdminLogin.css */
+.admin-login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 60px); /* Adjust for navbar height */
+  background-color: #181818;
+  color: #eee;
+  padding: 40px;
+}
+
+.admin-login-container h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #f0f0f0;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideInDown 0.5s ease-out forwards;
+}
+
+.admin-login-form {
+  background-color: #222;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeInScale 0.6s ease-out 0.3s forwards;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1.1rem;
+  color: #bbb;
+  margin-bottom: 8px;
+}
+
+.form-group input[type='email'],
+.form-group input[type='password'] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #333;
+  color: #eee;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.form-group input[type='email']:focus,
+.form-group input[type='password']:focus {
+  background-color: #444;
+  outline: none;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.4s ease-out 0.6s forwards;
+}
+
+.login-button {
+  background-color: #00cba9;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 14px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.4s ease-out 0.8s forwards;
+}
+
+.login-button:hover {
+  background-color: #00a88e;
+}
+
+/* Animation Keyframes */
+@keyframes slideInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .admin-login-container {
+    padding: 30px;
+    min-height: calc(100vh - 50px); /* Adjust for smaller mobile navbar */
+  }
+
+  .admin-login-container h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+
+  .admin-login-form {
+    padding: 25px;
+    border-radius: 8px;
+    max-width: 95%;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  .form-group input[type='email'],
+  .form-group input[type='password'] {
+    padding: 10px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+  }
+
+  .login-button {
+    font-size: 1rem;
+    padding: 12px 20px;
+    border-radius: 6px;
+  }
+}

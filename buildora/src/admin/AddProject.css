@@ -1,0 +1,174 @@
+/* Global font & box sizing */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafb;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container */
+.max-w-5xl {
+  max-width: 80rem; /* 1280px */
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.rounded-lg {
+  border-radius: 0.75rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
+/* Headings */
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-gray-800 {
+  color: #2d3748;
+}
+
+/* Form spacing */
+.space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+/* Grid layout */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.md\:grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.md\:grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 768px) {
+  .md\:grid-cols-2,
+  .md\:grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  color: #4a5568; /* gray-700 */
+}
+
+/* Input & textarea styles */
+.input-style {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1.5px solid #cbd5e0; /* gray-300 */
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: #2d3748; /* gray-800 */
+  transition: border-color 0.2s ease;
+}
+
+.input-style:focus {
+  outline: none;
+  border-color: #48cfcf; /* your brand color */
+  box-shadow: 0 0 0 3px rgba(72, 207, 203, 0.3);
+  background-color: #f0fdfa;
+}
+
+/* Textarea height override */
+textarea.input-style.h-24 {
+  height: 6rem; /* 24 * 0.25rem */
+  resize: vertical;
+}
+
+/* Screenshot URL inputs container */
+.space-y-2 > * + * {
+  margin-top: 0.5rem;
+}
+
+/* Add Screenshot button */
+button[type="button"] {
+  background: none;
+  border: none;
+  color: #3182ce; /* blue-600 */
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: 0;
+}
+
+button[type="button"]:hover {
+  text-decoration: underline;
+}
+
+/* Submit button */
+button[type="submit"] {
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  background-color: #48cfcf;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #3bb1ae;
+}
+
+/* Responsive fix for smaller screens */
+@media (max-width: 480px) {
+  .max-w-5xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+
+.mainclass{
+  margin-left:350px;
+}
+.add-project-container{
+  margin-left: 400px;
+
+}
