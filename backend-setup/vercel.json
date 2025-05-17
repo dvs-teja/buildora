@@ -1,1 +1,17 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "pom.xml",
+      "use": "@vercel/java",
+      "config": { "jdk": "17" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "target/backend-setup.jar"
+    }
+  ]
+}
 
