@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/projects")
-@CrossOrigin(origins = "http://localhost:5173") // Allow your frontend origin
+@CrossOrigin(origins = "https://buildoraproject.netlify.app") // Allow your frontend origin
 
 public class ProjectController {
 
