@@ -13,7 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
   @Bean
   public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration configuration = new CorsConfiguration();
-    configuration.addAllowedOrigin("http://localhost:5173");
+    configuration.addAllowedOrigin("https://buildoraproject.netlify.app'");
     configuration.addAllowedMethod("*");
     configuration.addAllowedHeader("*");
     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
