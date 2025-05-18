@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./AddProject.css";
+import './AddProject.css';
 
 const AddProject = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +18,7 @@ const AddProject = () => {
     videoDemo: '',
     sellerNotes: ''
   });
+
   const [screenshotFile, setScreenshotFile] = useState(null);
 
   const handleChange = (e) => {
@@ -34,21 +35,12 @@ const AddProject = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const form = new FormData();
-    form.append('title', formData.title);
-    form.append('description', formData.description);
-    form.append('techStack', formData.techStack);
-    form.append('features', formData.features);
-    form.append('price', formData.price);
-    form.append('coverImage', formData.coverImage);
-    form.append('whatIncluded', formData.whatIncluded);
-    form.append('demoLink', formData.demoLink);
-    form.append('category', formData.category);
-    form.append('level', formData.level);
-    form.append('license', formData.license);
-    form.append('setupTime', formData.setupTime);
-    form.append('videoDemo', formData.videoDemo);
-    form.append('sellerNotes', formData.sellerNotes);
+    Object.entries(formData).forEach(([key, value]) => {
+      form.append(key, value);
+    });
+
     if (screenshotFile) {
       form.append('screenshot', screenshotFile);
     }
@@ -56,18 +48,34 @@ const AddProject = () => {
     try {
       const response = await fetch('http://localhost:8080/api/projects', {
         method: 'POST',
-        body: form,
+        body: form
       });
 
       if (response.ok) {
         alert('Project submitted successfully!');
-        // Reset form here
+        setFormData({
+          title: '',
+          description: '',
+          techStack: '',
+          features: '',
+          price: '',
+          coverImage: '',
+          whatIncluded: '',
+          demoLink: '',
+          category: '',
+          level: '',
+          license: '',
+          setupTime: '',
+          videoDemo: '',
+          sellerNotes: ''
+        });
+        setScreenshotFile(null);
       } else {
         alert('Failed to submit project.');
       }
-    } catch (err) {
+    } catch (error) {
+      console.error('Submission Error:', error);
       alert('Error submitting project.');
-      console.error(err);
     }
   };
 
@@ -168,20 +176,17 @@ const AddProject = () => {
           </div>
         </div>
 
-        {/* Screenshot Fields */}
+        {/* Screenshot Upload */}
         <div>
           <label className="block font-medium mb-1">Screenshot Image</label>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleScreenshotFileChange}
-            className="input-style"
-          />
+          <input type="file" accept="image/*" onChange={handleScreenshotFileChange} className="input-style" />
         </div>
 
-        {/* Submit */}
+        {/* Submit Button */}
         <div className="text-center pt-4">
-          <button type="submit" className="px-6 py-2 bg-[#48CFCB] text-white rounded hover:bg-[#3bb1ae] transition">Submit Project</button>
+          <button type="submit" className="px-6 py-2 bg-[#48CFCB] text-white rounded hover:bg-[#3bb1ae] transition">
+            Submit Project
+          </button>
         </div>
       </form>
     </div>
