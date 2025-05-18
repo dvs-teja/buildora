@@ -8,16 +8,17 @@ const ManageProjects = () => {
   useEffect(() => {
     fetchProjects()
       .then(setProjects)
-      .catch(console.error);
+      .catch((err) => console.error('Error fetching projects:', err));
   }, []);
 
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this project?')) {
       try {
         await deleteProject(id);
-        setProjects(projects.filter(project => project.id !== id));
+        setProjects((prevProjects) => prevProjects.filter((project) => (project._id || project.id) !== id));
       } catch (err) {
         alert('Failed to delete project.');
+        console.error('Delete error:', err);
       }
     }
   };
@@ -33,19 +34,24 @@ const ManageProjects = () => {
             <tr>
               <th>Title</th>
               <th>Description</th>
-              <th>Actions</th>
+              <th style={{ minWidth: '100px' }}>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {projects.map((project) => (
-              <tr key={project.id}>
-                <td>{project.title}</td>
-                <td>{project.description}</td>
-                <td>
-                  <button onClick={() => handleDelete(project.id)} className="delete-btn">Delete</button>
-                </td>
-              </tr>
-            ))}
+            {projects.map((project) => {
+              const projectId = project._id || project.id;
+              return (
+                <tr key={projectId}>
+                  <td>{project.title}</td>
+                  <td>{project.description}</td>
+                  <td>
+                    <button onClick={() => handleDelete(projectId)} className="delete-btn">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       )}
