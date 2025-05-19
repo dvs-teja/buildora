@@ -30,7 +30,7 @@ public class Project {
 
     private String demoLink;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "LONGTEXT")
     private String screenshots; // Store file name or path
 
     private String category;
