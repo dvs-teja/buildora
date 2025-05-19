@@ -4,4 +4,5 @@ import com.example.backend_setup.model.Project;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProjectRepository extends JpaRepository<Project, Integer> {
+    // No methods needed unless you want custom queries
 }
